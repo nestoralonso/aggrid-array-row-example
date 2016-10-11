@@ -51,7 +51,7 @@ export default class NameCellEditor extends React.Component {
 
     render() {
         return (
-            <input style={style} ref="textField" value={this.state.value} onChange={this.onChangeListener.bind(this)}/>
+            <span>Fecha aqui</span>
         );
     }
 

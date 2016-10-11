@@ -33,10 +33,11 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "react": "0.14.6",
-    "react-dom": "0.14.6",
     "ag-grid": "~6.0.1",
     "ag-grid-enterprise": "~6.0.1",
-    "ag-grid-react": "~6.0.1"
+    "ag-grid-react": "~6.0.1",
+    "react": "0.14.6",
+    "react-bootstrap-date-picker": "^3.7.0",
+    "react-dom": "0.14.6"
   }
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {AgGridReact} from 'ag-grid-react';
-
+import NameCellEditor from './NameCellEditor.jsx';
 const data = [
   [134, 12, 'Felix the Cat'],
   [245, 16, 'Garfield']
@@ -11,7 +11,6 @@ const data2 = [
 ]
 
 function valueGetter(params) {
-  debugger;
   return params.data[params.colDef.index];
 }
 
@@ -39,12 +38,23 @@ const columnInfo = [
 function getColDefs() {
   return columnInfo.map(ci => ({
     headerName: ci.name,
-    field: ci.id,    
+    field: ci.id,
     width: 120,
     valueGetter: ci.valueGetter,
-    index: ci.index
+    index: ci.index,
+    editable: true,
+    cellEditorFramework: NameCellEditor,
+    newValueHandler
   }));
 }
+
+function newValueHandler(params) {
+    console.log('newValue=', params.newValue);
+    const arrData = params.data;
+    arrData[params.colDef.index] = params.newValue;
+    params.api.refreshCells([params.node], [params.colDef.field]);
+}
+
 const colDefs = getColDefs();
 console.log('colDefs=', colDefs);
 class ReSimple extends Component {
@@ -63,7 +73,7 @@ class ReSimple extends Component {
             enableSorting="true"
             enableFilter="true"
             rowHeight="22"
-        />        
+        />
       </div>
     );
   }
