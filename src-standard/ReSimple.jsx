@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {AgGridReact} from 'ag-grid-react';
 import NameCellEditor from './NameCellEditor.jsx';
+import DateCellEditor from './DateCellEditor.jsx';
+
 const data = [
-  [134, 12, 'Felix the Cat'],
-  [245, 16, 'Garfield']
+  [134, 12, 'Felix the Cat', '2016/10/20'],
+  [245, 16, 'Garfield', '2016/10/20']
 ]
 const data2 = [
   {NAME: 'Felix'},
@@ -19,19 +21,26 @@ const columnInfo = [
     index: 0,
     id: 'ID',
     name: 'Id',
-    valueGetter
+    valueGetter,
   },
   {
     index: 1,
     id: 'AGE',
     name: 'Age',
-    valueGetter
+    valueGetter,
   },
   {
     id: 'NAME',
     index: 2,
     name: 'Full Name',
-    valueGetter
+    valueGetter,
+  },
+  {
+    id: 'SOME_DATE',
+    index: 3,
+    name: 'Some date',
+    valueGetter,
+    type: 'date',
   }
 ];
 
@@ -43,7 +52,7 @@ function getColDefs() {
     valueGetter: ci.valueGetter,
     index: ci.index,
     editable: true,
-    cellEditorFramework: NameCellEditor,
+    cellEditorFramework: ci.type === 'date' ? DateCellEditor : NameCellEditor,
     newValueHandler
   }));
 }

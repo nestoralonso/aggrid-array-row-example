@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 var KEY_BACKSPACE = 8;
 var KEY_DELETE = 46;
@@ -8,7 +8,7 @@ const style = {
     backgroundColor: 'greenyellow',
 };
 // cell renderer for the proficiency column. this is a very basic cell editor,
-export default class NameCellEditor extends React.Component {
+export default class NameCellEditor extends Component {
 
     constructor(props) {
         super(props);
