@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {AgGridReact} from 'ag-grid-react';
 import NameCellEditor from './NameCellEditor.jsx';
 import DateCellEditor from './DateCellEditor.jsx';
+import 'ag-grid-root/dist/styles/ag-grid.css';
+import 'ag-grid-root/dist/styles/theme-fresh.css';
 
 const data = [
   [134, 12, 'Felix the Cat', '2016/10/20'],
@@ -69,7 +71,7 @@ console.log('colDefs=', colDefs);
 class ReSimple extends Component {
   render() {
     return (
-      <div>
+      <div className="ag-fresh">
         <AgGridReact
 
             // column definitions and row data are immutable, the grid
