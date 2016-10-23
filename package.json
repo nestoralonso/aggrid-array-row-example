@@ -4,8 +4,7 @@
   "description": "Example Reach applicaiton using ag-Grid.",
   "main": "dist/ag-grid-react-example.js",
   "scripts": {
-    "standard": "webpack-dev-server --config webpack.config.standard.js --progress --colors --hot --inline",
-    "large": "webpack-dev-server --config webpack.config.large.js --progress --colors --hot --inline"
+    "start": "webpack-dev-server --config webpack.config.standard.js --progress --colors --hot --inline"
   },
   "repository": {
     "type": "git",
